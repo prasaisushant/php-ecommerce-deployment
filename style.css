@@ -53,16 +53,7 @@ img {
   justify-content: space-between;
  }
 
- nav ul li{
-     display: inline-block;
-     list-style: none;
-     margin: 10px 20px;
- }
- 
- nav ul li a{
-     text-decoration: none;
-     color: #606163;
- }
+
  
  nav ul li a:hover{
      color: #ff4321;
@@ -72,6 +63,27 @@ img {
   display: flex;
   align-items: center;
 }
+
+nav ul {
+  display: flex;
+  list-style-type: none;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+nav ul li a i {
+  margin-right: 5px;
+}
+
 
 
  .align-center {
@@ -417,3 +429,80 @@ a:hover {
 .img-cover:hover .overlay {
   opacity: 1;
 }
+
+
+/* Style for the navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #c0e2f2; /* Dark background color */
+  width: 100%;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  margin-left: 20px;
+}
+
+.navbar ul li a {
+  color: #2c3e50; /* Light text color */
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s;
+
+}
+
+.navbar ul li a:hover {
+  color: #f39c12; /* Hover color */
+}
+
+.navbar ul li a i {
+  margin-right: 8px;
+}
+
+.logob {
+  height: 50px;
+}
+
+/* Style for the intro */
+.intro {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #ecf0f1; /* Light background color */
+}
+
+.intro h1 {
+  font-size: 48px;
+  color: #2c3e50;
+  margin-bottom: 20px;
+}
+
+.intro h2 {
+  font-size: 36px;
+  color: #34495e;
+}
+
+.intro .dis {
+  color: #e74c3c; /* Discount text color */
+}
+
+.intro h3 {
+  font-size: 24px;
+  color: #7f8c8d;
+}
+
+.benefit .icon.bx-purchase-tag {
+  animation: pulse 2s infinite;
+}
+
+
