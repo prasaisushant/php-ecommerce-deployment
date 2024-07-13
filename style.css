@@ -378,3 +378,42 @@ a {
 a:hover {
   color: #ff4321; /* Highlight color on hover */
 }
+
+
+/* Add your custom styles below */
+
+.img-cover {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.img-cover img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter 0.3s;
+}
+
+.img-cover .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.img-cover:hover img {
+  filter: blur(5px);
+}
+
+.img-cover:hover .overlay {
+  opacity: 1;
+}
