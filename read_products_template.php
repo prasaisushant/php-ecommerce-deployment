@@ -25,7 +25,7 @@
 
             // product price and category name
             echo "<div class='m-b-10px'>";
-                echo "&#36;" . number_format($price, 2, '.', ',');
+                echo "Rs " . number_format($price, 2, '.', ',');
             echo "</div>";
 
             // add to cart button

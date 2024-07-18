@@ -506,3 +506,44 @@ a:hover {
 }
 
 
+.section {
+  padding: 160px 0 0 0;
+}
+
+.benefit-center {
+  display: flex;
+  justify-content: space-around;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.benefit {
+  text-align: center;
+}
+
+.benefit .icon {
+  font-size: 64px;
+  color: #ff4321; /* Icon color */
+  animation: pulse 2s infinite; /* Animation for all icons */
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.benefit h4 {
+  margin: 20px 0 5px 0;
+}
+
+.benefit .text {
+  font-size: 18px;
+  color: #777; /* Text color */
+}
+

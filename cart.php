@@ -103,7 +103,7 @@
     echo "<div class='col-md-4'>";
         echo "<div class='cart-row'>";
             echo "<h4 class='m-b-10px'>Total ({$item_count} items)</h4>";
-            echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>";
+            echo "<h4>Rs " . number_format($total, 2, '.', ',') . "</h4>";
             echo "<a href='checkout.php' class='btn btn-success m-b-10px'>";
                 echo "<span class='glyphicon glyphicon-shopping-cart'></span> Proceed to Checkout";
             echo "</a>";
