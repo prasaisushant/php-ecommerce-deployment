@@ -20,11 +20,11 @@
                 }
 
                 // product name
-                echo "<div class='product-name m-b-10px'>{$name}</div>";
+                echo "<div class='product-name m-b-10px' style='color: white;'>{$name}</div>";
             echo "</a>";
 
             // product price and category name
-            echo "<div class='m-b-10px'>";
+            echo "<div class='m-b-10px' style='color: white;'>";
                 echo "Rs " . number_format($price, 2, '.', ',');
             echo "</div>";
 

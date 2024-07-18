@@ -17,6 +17,28 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 
     <!-- custom css for users -->
     <link href="libs/css/user.css" rel="stylesheet" media="screen">
+    <?php if (basename($_SERVER['PHP_SELF']) == 'products.php'): ?>
+        <style>
+            body {
+                /* Apply background styles only to products.php */
+                background-image: url('back.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+        </style>
+    <?php endif; ?>
+    <?php if (basename($_SERVER['PHP_SELF']) == 'cart.php'): ?>
+        <style>
+            body {
+                /* Apply background styles only to products.php */
+                background-image: url('cartback.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+        </style>
+    <?php endif; ?>
   </head>
   <body>
         <?php include 'navigation.php'; ?>
