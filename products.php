@@ -1,3 +1,4 @@
+
 <?php
       // connect to database
       include 'config/database.php';
@@ -59,3 +60,4 @@
       // layout footer code
       include 'layout_foot.php';
 ?>
+

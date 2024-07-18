@@ -419,7 +419,7 @@ a:hover {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #283941;
+  background-color: #141717;
   width: 100%;
 }
 
@@ -544,4 +544,13 @@ a:hover {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+.welcome-text {
+  font-weight: bold;
+  color: #5da8ac;
+  font-family: "Helvetica", sans-serif; /* Replace with your preferred font-family */
+  font-size: 32px; /* Adjust font size as needed */
+  text-align: right; /* Center align the text */
+  margin-top: 5px; /* Adjust margin-top as needed */
 }

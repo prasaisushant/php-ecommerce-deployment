@@ -25,6 +25,7 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
+                 color: white;
             }
         </style>
     <?php endif; ?>
@@ -36,6 +37,7 @@ $_SESSION['cart']=isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
+                color: white;
             }
         </style>
     <?php endif; ?>
