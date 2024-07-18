@@ -45,7 +45,7 @@
               echo "</div>";
 
               echo "<div class='col-md-4'>";
-                  echo "<h4>&#36;" . number_format($price, 2, '.', ',') . "</h4>";
+                  echo "<h4>Rs. " . number_format($price, 2, '.', ',') . "</h4>";
               echo "</div>";
           echo "</div>";
 
@@ -60,7 +60,7 @@
               }else{
                   echo "<h4 class='m-b-10px'>Total ({$item_count} item)</h4>";
               }
-              echo "<h4>&#36;" . number_format($total, 2, '.', ',') . "</h4>";
+              echo "<h4> Rs.  " . number_format($total, 2, '.', ',') . "</h4>";
 
               echo "<a href='place_order.php' class='btn btn-lg btn-success m-b-10px'>";
                   echo "<span class='glyphicon glyphicon-shopping-cart'></span> Place Order";

@@ -39,7 +39,7 @@ h1 {
     font-weight: 400;
 }
 .cta {
-    background-color: hsl(248, 32%, 49%);
+    background-color: hsl(96, 32%, 49%);
     color: rgba(255, 255, 255, 0.755);
     padding: 15px 20px;
     text-align: center;
@@ -85,14 +85,14 @@ textarea:focus, input:focus {
 }
 
 #submit-btn {
-    background-color: hsl(154, 59%, 51%);
+    background-color: hsl(0, 59%, 51%);
     color: #ffffff;
     border: none;
     padding: 1em 0;
     font-size: 1em;
     font-weight: 500;
     text-transform: uppercase;
-    box-shadow: 0 0.2em 0 rgb(46, 167, 114);
+    box-shadow: 0 0.2em 0 rgb(167, 46, 46);
 }
 #submit-btn:hover {
     cursor: pointer;

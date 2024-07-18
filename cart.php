@@ -91,7 +91,7 @@
             echo "</div>";
 
             echo "<div class='col-md-4'>";
-                echo "<h4>&#36;" . number_format($price, 2, '.', ',') . "</h4>";
+                echo "<h4>Rs " . number_format($price, 2, '.', ',') . "</h4>";
             echo "</div>";
         echo "</div>";
 

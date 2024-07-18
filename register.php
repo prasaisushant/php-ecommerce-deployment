@@ -54,10 +54,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <main>
         <section class="learn">
-           <h1>Transform Your Farming with Our Premium Products</h1>
-           <p>See how our high-quality tools and supplies can boost your harvest.
-            Using standard equipment is fine, but investing in the best can make a world of difference.
-           <br>  Upgrade your farm today and watch your yields soar! </p>  
+           <h1>Revamp Your Timekeeping with Our Premier Timepieces
+           </h1>
+           <p>Discover how our exquisite watches can elevate your everyday moments. 
+            While ordinary watches suffice, choosing the finest can transform your experience.Enhance your style today and witness your moments shine!
+
+           </p>  
         </section>
 
         <section>

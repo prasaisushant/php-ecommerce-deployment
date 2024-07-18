@@ -35,31 +35,29 @@ img {
   }
 }
 
-
-
 /* HEADER */
- .logob{
- width: 100px;
- height: 80px;
- cursor: pointer;
- }
- 
- nav{
+.logob {
+  width: 100px;
+  height: 80px;
+  cursor: pointer;
+}
+
+
+nav {
   width: 84%;
   margin: auto;
   padding: 20px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
- }
+}
 
 
- 
- nav ul li a:hover{
-     color: #ff4321;
- } 
+nav ul li a:hover {
+  color: #ff4321;
+}
 
- .d {
+.d {
   display: flex;
   align-items: center;
 }
@@ -84,34 +82,27 @@ nav ul li a i {
   margin-right: 5px;
 }
 
-
-
- .align-center {
+.align-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
- @media only screen and (max-width: 768px) {
+@media only screen and (max-width: 768px) {
   nav {
     padding: 16px 0;
   }
 
-
-  .icons{
+  .icons {
     display: none;
   }
 
- 
-  .logob{
+  .logob {
     width: 100px;
     height: 80px;
     cursor: pointer;
-    } 
   }
-  
-  
-  
+}
 
 /* Intro */
 .intro {
@@ -122,16 +113,13 @@ nav ul li a i {
   background-color: lightgray;
   background-image: url('cover.jpg');
   background-repeat: no-repeat;
-  background-attachment: scroll; 
+  background-attachment: scroll;
   background-size: 100% 100%;
-/*background-blend-mode: overlay;*/
 }
 
 .intro-content {
   height: 100%;
 }
-
-
 
 .dis {
   display: inline-block;
@@ -154,8 +142,7 @@ nav ul li a i {
   text-align: center;
 }
 
-
-.intro  h3 {
+.intro h3 {
   font-weight: 400;
   font-size: 40px;
   text-align: center;
@@ -172,9 +159,6 @@ nav ul li a i {
   margin-top: 75px;
   margin-left: 600px;
 }
-
-
-
 
 /* Section */
 .section {
@@ -197,7 +181,7 @@ nav ul li a i {
 }
 
 .benefit .icon {
-  color:  #ff4321;
+  color: #ff4321;
   font-size: 64px;
 }
 
@@ -223,7 +207,7 @@ nav ul li a i {
 }
 
 .h span {
-  color:  #ff4321;
+  color: #ff4321;
 }
 
 .ac-center {
@@ -300,6 +284,7 @@ nav ul li a i {
   grid-row-start: 1;
   grid-row-end: 9;
 }
+
 .item-3 {
   grid-column-start: 3;
   grid-column-end: 5;
@@ -346,12 +331,11 @@ nav ul li a i {
     grid-row-end: 19;
   }
 }
-    
 
 #footer {
   width: 100%;
   padding: 50px 0;
-  background-color: #222; /* Dark background color */
+  background-color: #222;
   text-align: center;
   color: white;
 }
@@ -372,25 +356,24 @@ nav ul li a i {
 
 .social-links a {
   font-size: 24px;
-  color: #ddd; /* Light grey for social icons */
+  color: #ddd;
   margin: 0 10px;
   transition: color 0.3s ease;
 }
 
 .social-links a:hover {
-  color: #ff4321; /* Highlight color on hover */
+  color: #ff4321;
 }
 
 /* Link styling */
 a {
-  color: #fff; /* White color for links */
+  color: #fff;
   text-decoration: none;
 }
 
 a:hover {
-  color: #ff4321; /* Highlight color on hover */
+  color: #ff4321;
 }
-
 
 /* Add your custom styles below */
 
@@ -430,14 +413,13 @@ a:hover {
   opacity: 1;
 }
 
-
 /* Style for the navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: #c0e2f2; /* Dark background color */
+  background-color: #283941;
   width: 100%;
 }
 
@@ -453,17 +435,16 @@ a:hover {
 }
 
 .navbar ul li a {
-  color: #2c3e50; /* Light text color */
+  color: #5da8ac;
   text-decoration: none;
   font-size: 18px;
   display: flex;
   align-items: center;
   transition: color 0.3s;
-
 }
 
 .navbar ul li a:hover {
-  color: #f39c12; /* Hover color */
+  color: #f39c12;
 }
 
 .navbar ul li a i {
@@ -478,22 +459,22 @@ a:hover {
 .intro {
   text-align: center;
   padding: 50px 20px;
-  background-color: #ecf0f1; /* Light background color */
+  background-color: #ecf0f1;
 }
 
 .intro h1 {
   font-size: 48px;
-  color: #2c3e50;
+  color: #ffffff;
   margin-bottom: 20px;
 }
 
 .intro h2 {
   font-size: 36px;
-  color: #34495e;
+  color: #ffffff;
 }
 
 .intro .dis {
-  color: #e74c3c; /* Discount text color */
+  color: #e74c3c;
 }
 
 .intro h3 {
@@ -501,10 +482,22 @@ a:hover {
   color: #7f8c8d;
 }
 
+/* Animation for the benefit icons */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .benefit .icon.bx-purchase-tag {
   animation: pulse 2s infinite;
 }
-
 
 .section {
   padding: 160px 0 0 0;
@@ -523,19 +516,8 @@ a:hover {
 
 .benefit .icon {
   font-size: 64px;
-  color: #ff4321; /* Icon color */
-  animation: pulse 2s infinite; /* Animation for all icons */
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-  }
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+  color: #ff4321;
+  animation: pulse 2s infinite;
 }
 
 .benefit h4 {
@@ -544,6 +526,22 @@ a:hover {
 
 .benefit .text {
   font-size: 18px;
-  color: #777; /* Text color */
+  color: #777;
 }
 
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  background: #000;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
