@@ -1,20 +1,14 @@
-# Dockerfile
+# Use the official PHP image with Apache
+FROM php:8.1-apache
 
-# Stage 1: Build PHP app
-FROM php:8.0-fpm AS php-build
+# Copy the current directory contents into the container at /var/www/html
+COPY . /var/www/html/
+
+# Enable Apache mod_rewrite
+RUN a2enmod rewrite
+
+# Set the working directory
 WORKDIR /var/www/html
-COPY . /var/www/html
 
-# Install dependencies
-RUN apt-get update && apt-get install -y \
-    libpng-dev libjpeg-dev libfreetype6-dev zip git \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd
-
-# Stage 2: Nginx + PHP-FPM
-FROM nginx:alpine
-COPY --from=php-build /var/www/html /var/www/html
-COPY ./nginx.conf /etc/nginx/nginx.conf
-
+# Expose port 80
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
