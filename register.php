@@ -1,10 +1,11 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Database configuration
-    $servername = "localhost";
+    $servername = "mysql-service";
     $username = "root";
-    $password = "";
+    $password = "root";
     $dbname = "website";
+    
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

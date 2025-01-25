@@ -1,208 +1,147 @@
 <?php
 // A cart item object
-class CartItem{
+class CartItem {
 
-      // database connection and table name
-      private $conn;
-      private $table_name = "cart_items";
+    // Database connection and table name
+    private $conn;
+    private $table_name = "cart_items";
 
-      //object properties
-      public $id;
-      public $product_id;
-      public $quantity;
-      public $user_id;
-      public $created;
-      public $modified;
+    // Object properties
+    public $id;
+    public $product_id;
+    public $quantity;
+    public $user_id;
+    public $created;
+    public $modified;
 
-      //constructor
-      public function __construct($db){
+    // Constructor
+    public function __construct($db) {
         $this->conn = $db;
-      }
+    }
 
-      // check if a cart item exists
-      public function exists(){
-        // query to count existing cart item
+    // Check if a cart item exists
+    public function exists() {
         $query = "SELECT count(*) FROM " . $this->table_name . " WHERE product_id=:product_id AND user_id=:user_id";
-
-        // prepare query statement
         $stmt = $this->conn->prepare($query);
 
-        // sanitize
-        $this->product_id=htmlspecialchars(strip_tags($this->product_id));
-        $this->user_id=htmlspecialchars(strip_tags($this->user_id));
+        // Sanitize
+        $this->product_id = htmlspecialchars(strip_tags($this->product_id));
+        $this->user_id = htmlspecialchars(strip_tags($this->user_id));
 
-        // bind category id variable
+        // Bind parameters
         $stmt->bindParam(":product_id", $this->product_id);
         $stmt->bindParam(":user_id", $this->user_id);
 
-        // execute query
+        // Execute query
         $stmt->execute();
-
-        // get row value
         $rows = $stmt->fetch(PDO::FETCH_NUM);
 
-        // return
-        if($rows[0]>0){
-            return true;
-        }
+        return $rows[0] > 0;
+    }
 
-        return false;
-      }
-
-      //count user's items in the cart
-      public function count(){
-        //query to count existing user's cart items
+    // Count user's items in the cart
+    public function count() {
         $query = "SELECT count(*) FROM " . $this->table_name . " WHERE user_id=:user_id";
-
-        //prepare the query statement
         $stmt = $this->conn->prepare($query);
 
-        //sanitize
+        // Sanitize
         $this->user_id = htmlspecialchars(strip_tags($this->user_id));
-
-        //bind category id variable
         $stmt->bindParam(":user_id", $this->user_id);
 
-        //execute query
+        // Execute query
         $stmt->execute();
-
-        //get row value
         $rows = $stmt->fetch(PDO::FETCH_NUM);
 
         return $rows[0];
-      }
+    }
 
-      // create cart item record
-      function create(){
-        // to get times-tamp for 'created' field
-        $this->created=date('Y-m-d H:i:s');
+    // Create cart item record
+    public function create() {
+        $this->created = date('Y-m-d H:i:s');
 
-        // query to insert cart item record
-        $query = "INSERT INTO
-                    " . $this->table_name . "
-                SET
-                    product_id = :product_id,
-                    quantity = :quantity,
-                    user_id = :user_id,
-                    created = :created";
-
-        // prepare query statement
+        $query = "INSERT INTO " . $this->table_name . "
+                  SET product_id = :product_id, quantity = :quantity, user_id = :user_id, created = :created";
         $stmt = $this->conn->prepare($query);
 
-        // sanitize
-        $this->product_id=htmlspecialchars(strip_tags($this->product_id));
-        $this->quantity=htmlspecialchars(strip_tags($this->quantity));
-        $this->user_id=htmlspecialchars(strip_tags($this->user_id));
+        // Sanitize
+        $this->product_id = htmlspecialchars(strip_tags($this->product_id));
+        $this->quantity = htmlspecialchars(strip_tags($this->quantity));
+        $this->user_id = htmlspecialchars(strip_tags($this->user_id));
 
-        // bind values
+        // Bind values
         $stmt->bindParam(":product_id", $this->product_id);
         $stmt->bindParam(":quantity", $this->quantity);
         $stmt->bindParam(":user_id", $this->user_id);
         $stmt->bindParam(":created", $this->created);
 
-        // execute query
-        if($stmt->execute()){
-          return true;
-        }
+        // Execute query
+        return $stmt->execute();
+    }
 
-        return false;
-      }
-
-      // read items in the cart
-      public function read(){
-
-          $query="SELECT p.id, p.name, p.price, ci.quantity, ci.quantity * p.price AS subtotal
+    // Read items in the cart
+    public function read() {
+        $query = "SELECT p.id, p.name, p.price, ci.quantity, ci.quantity * p.price AS subtotal
                   FROM " . $this->table_name . " ci
-                      LEFT JOIN products p
-                          ON ci.product_id = p.id
+                  LEFT JOIN products p ON ci.product_id = p.id
                   WHERE ci.user_id=:user_id";
+        $stmt = $this->conn->prepare($query);
 
-          // prepare query statement
-          $stmt = $this->conn->prepare($query);
+        // Sanitize
+        $this->user_id = htmlspecialchars(strip_tags($this->user_id));
+        $stmt->bindParam(":user_id", $this->user_id, PDO::PARAM_INT);
 
-          // sanitize
-          $this->user_id=htmlspecialchars(strip_tags($this->user_id));
+        // Execute query
+        $stmt->execute();
+        return $stmt;
+    }
 
-          // bind value
-          $stmt->bindParam(":user_id", $this->user_id, PDO::PARAM_INT);
-
-          // execute query
-          $stmt->execute();
-
-          // return values
-          return $stmt;
-      }
-
-      // create cart item record
-      function update(){
-
-          // query to insert cart item record
-          $query = "UPDATE " . $this->table_name . "
+    // Update cart item record
+    public function update() {
+        $query = "UPDATE " . $this->table_name . "
                   SET quantity=:quantity
                   WHERE product_id=:product_id AND user_id=:user_id";
+        $stmt = $this->conn->prepare($query);
 
-          // prepare query statement
-          $stmt = $this->conn->prepare($query);
+        // Sanitize
+        $this->quantity = htmlspecialchars(strip_tags($this->quantity));
+        $this->product_id = htmlspecialchars(strip_tags($this->product_id));
+        $this->user_id = htmlspecialchars(strip_tags($this->user_id));
 
-          // sanitize
-          $this->quantity=htmlspecialchars(strip_tags($this->quantity));
-          $this->product_id=htmlspecialchars(strip_tags($this->product_id));
-          $this->user_id=htmlspecialchars(strip_tags($this->user_id));
+        // Bind values
+        $stmt->bindParam(":quantity", $this->quantity);
+        $stmt->bindParam(":product_id", $this->product_id);
+        $stmt->bindParam(":user_id", $this->user_id);
 
-          // bind values
-          $stmt->bindParam(":quantity", $this->quantity);
-          $stmt->bindParam(":product_id", $this->product_id);
-          $stmt->bindParam(":user_id", $this->user_id);
+        // Execute query
+        return $stmt->execute();
+    }
 
-          // execute query
-          if($stmt->execute()){
-              return true;
-          }
+    // Remove cart item by user and product
+    public function delete() {
+        $query = "DELETE FROM " . $this->table_name . " WHERE product_id=:product_id AND user_id=:user_id";
+        $stmt = $this->conn->prepare($query);
 
-          return false;
-      }
+        // Sanitize
+        $this->product_id = htmlspecialchars(strip_tags($this->product_id));
+        $this->user_id = htmlspecialchars(strip_tags($this->user_id));
 
-      // remove cart item by user and product
-      public function delete(){
+        // Bind ids
+        $stmt->bindParam(":product_id", $this->product_id);
+        $stmt->bindParam(":user_id", $this->user_id);
 
-          // delete query
-          $query = "DELETE FROM " . $this->table_name . " WHERE product_id=:product_id AND user_id=:user_id";
-          $stmt = $this->conn->prepare($query);
+        return $stmt->execute();
+    }
 
-          // sanitize
-          $this->product_id=htmlspecialchars(strip_tags($this->product_id));
-          $this->user_id=htmlspecialchars(strip_tags($this->user_id));
+    // Remove cart items by user
+    public function deleteByUser() {
+        $query = "DELETE FROM " . $this->table_name . " WHERE user_id=:user_id";
+        $stmt = $this->conn->prepare($query);
 
-          // bind ids
-          $stmt->bindParam(":product_id", $this->product_id);
-          $stmt->bindParam(":user_id", $this->user_id);
+        // Sanitize
+        $this->user_id = htmlspecialchars(strip_tags($this->user_id));
+        $stmt->bindParam(":user_id", $this->user_id);
 
-          if($stmt->execute()){
-              return true;
-          }
-
-          return false;
-      }
-
-      // remove cart items by user
-      public function deleteByUser(){
-          // delete query
-          $query = "DELETE FROM " . $this->table_name . " WHERE user_id=:user_id";
-          $stmt = $this->conn->prepare($query);
-
-          // sanitize
-          $this->user_id=htmlspecialchars(strip_tags($this->user_id));
-
-          // bind id
-          $stmt->bindParam(":user_id", $this->user_id);
-
-          if($stmt->execute()){
-              return true;
-          }
-
-          return false;
-      }
+        return $stmt->execute();
+    }
 }
-
 ?>
-
